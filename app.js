@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 
+app.use(bodyParser.urlencoded({extended: true}));
 // Setting view engine
 app.set("view engine", "ejs");
 
@@ -28,6 +29,11 @@ app.post("/campgrounds", function(req,res) {
     // get data from form and add to campgrounds array
     //redirect back to campgrounds page
 });
+
+// rendering new form
+app.get("/campgrounds/new", function(req, res) {
+    res.render("new.ejs");
+})
 
 // app.get('/', (req, res) => res.send('Yelpcamp Server is running'));
 
