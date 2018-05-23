@@ -14,8 +14,11 @@ app.get("/campgrounds", function(req, res) {
     var campgrounds = [
         {name: "Salmon Creek", image: ""},
         {name: "Granite Hill", image: ""},
-        {name: "Goat's rest", image: ""},
+        {name: "Goat's rest", image: ""}
     ]
+    
+    // render the campgrounds template
+    res.render("campgrounds", {campgrounds:campgrounds});
 });
 
 app.get('/', (req, res) => res.send('Yelpcamp Server is running'));
