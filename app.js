@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var bodyParser = require("body-parser");
 
 // Setting view engine
 app.set("view engine", "ejs");
@@ -21,7 +22,14 @@ app.get("/campgrounds", function(req, res) {
     res.render("campgrounds", {campgrounds:campgrounds});
 });
 
-app.get('/', (req, res) => res.send('Yelpcamp Server is running'));
+// Allows user to post new campgrounds
+app.post("/campgrounds", function(req,res) {
+    res.send("You hit the post route!");
+    // get data from form and add to campgrounds array
+    //redirect back to campgrounds page
+});
+
+// app.get('/', (req, res) => res.send('Yelpcamp Server is running'));
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Yelpcamp server has started");
